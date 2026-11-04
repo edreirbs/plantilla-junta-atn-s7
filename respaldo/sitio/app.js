@@ -125,7 +125,6 @@
     forma.hidden = true; $("registro-cabeza").hidden = true; $("gracias").hidden = false;
     $("gracias-titulo").textContent = nombre ? "Tu lugar quedó, " + nombre : "Tu lugar quedó";
   }
-  if (registrado()) yaRegistrado(registrado());
   forma.addEventListener("submit", async (ev) => {
     ev.preventDefault();
     const msg = $("mensaje"), btn = $("enviar");
@@ -214,7 +213,6 @@
     $("mensaje-pregunta").className = "mensaje";
     $("mensaje-pregunta").textContent = registrado() ? "" : "Regístrate para preguntar. Votar no necesita registro.";
   }
-  avisoPregunta();
   pregunta.addEventListener("input", () => { $("cuenta").textContent = pregunta.value.length + " de 200"; });
   fp.addEventListener("submit", async (ev) => {
     ev.preventDefault();
@@ -302,8 +300,14 @@
     })(t0);
   }
 
-  // ---------- Arranque ----------
-  contar(); setInterval(() => { if (!document.hidden) contar(); }, 15000);
-  cargarMuro(); conectarEnVivo(); resumen();
+  // ---------- Arranque: al final, con todo ya declarado, y cada parte por separado ----------
+  // Si una parte falla (por ejemplo, al restaurar el registro de este dispositivo), las demás cargan igual.
+  const seguro = (f) => { try { f(); } catch (e) { console.error(e); } };
+  seguro(() => { if (registrado()) yaRegistrado(registrado()); });
+  seguro(avisoPregunta);
+  seguro(() => { contar(); setInterval(() => { if (!document.hidden) contar(); }, 15000); });
+  seguro(cargarMuro);
+  seguro(conectarEnVivo);
+  seguro(resumen);
   setInterval(() => { if (!document.hidden && enVivoAhora) cargarMuro(); }, 60000);   // repaso por si se perdió un aviso
 })();

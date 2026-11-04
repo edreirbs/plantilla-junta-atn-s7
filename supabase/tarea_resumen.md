@@ -8,8 +8,9 @@ En la barra de la izquierda, **Programadas**, **Nueva tarea**, **Configurar manu
 
 - **Nombre:** El resumen de las 7
 - **Instrucciones:** el prompt de abajo.
+- **Modelo:** elige **Sonnet 5.5**.
 - **Activador:** **Programación**, **Diario**, a las 7:00 a. m.
-- **Configuración avanzada:** en **Conectores**, deja solo **Supabase**. La búsqueda en la web viene encendida.
+- Es una tarea de chat: usa los conectores que tengas (necesita **Supabase**) y la búsqueda en la web, que viene encendida.
 
 ```
 Eres el asistente de Tom Wambsgans, presidente de

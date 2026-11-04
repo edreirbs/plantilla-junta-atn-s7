@@ -43,7 +43,7 @@ No hay archivo: se dibuja con HTML y CSS. Un bloque rojo con "ATN" en blanco, en
 |---|---|
 | Evento | Primera junta de Tom Wambsgans con la redacción de ATN |
 | Quién la convoca | Tom Wambsgans, presidente de noticias de ATN |
-| Fecha | La da la función `datos_junta` de la base: a tres días de la instalación, entre semana, a las 10:00 h de Nueva York. Nunca se escribe fija |
+| Fecha | La da la función `datos_junta` de la base: en unos días (tres después de la instalación, o el lunes si caen en fin de semana), a las 10:00 h de Nueva York. Nunca se escribe fija. En los textos di "en unos días", nunca un número de días |
 | En persona | Sala de redacción de ATN, Nueva York. Se entra con el gafete de ATN |
 | En línea | Transmisión interna. La liga personal llega por correo un día antes |
 | Registro | Cierra la víspera a las 18:00 h (también lo da `datos_junta`) |

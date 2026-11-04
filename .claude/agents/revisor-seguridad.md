@@ -15,7 +15,7 @@ Revisa y responde con una tabla `Punto | Bien o Falla | Dónde | Cómo arreglarl
 3. El muro muestra solo `nombre_pila` y `texto` (con sus votos). Nunca correo, apellido ni llave. En `esquema.sql`, la tabla `muro` no tiene columnas personales: Realtime manda el renglón completo a quien escucha.
 4. Votar se hace solo con `rpc/votar` y la llave del dispositivo, guardada en `localStorage`. Ningún `PATCH`, `update` ni insert directo a `muro`.
 5. Todo texto de una persona y el resumen se pintan con `textContent` (o `createTextNode`). Busca con Grep `innerHTML`, `outerHTML`, `insertAdjacentHTML` y `document.write`: si alguno recibe texto de la base o del formulario, es Falla. Las ligas del resumen solo con `https://`.
-6. Si Realtime no carga o no queda `SUBSCRIBED`, la página consulta `ver_muro()` cada 5 segundos y no se rompe.
+6. Si Realtime no carga o no queda `SUBSCRIBED`, la página consulta `ver_muro()` cada 5 segundos y no se rompe. Al arrancar con un registro ya guardado en `localStorage` (recargar después de registrarse), nada se usa antes de declararse y el muro, el contador y el resumen cargan igual.
 7. En `esquema.sql`: seguridad por renglón activa en `asistentes`, `muro`, `resumen` y `junta`; el público no tiene permisos sobre `asistentes`, `resumen` ni `privado`; en `muro` solo puede leer; las funciones de escritura son `security definer` con `search_path` fijo; `guardar_resumen` no la puede llamar el público.
 8. Hay aviso de privacidad: quién recibe los datos, para qué, que en el muro solo sale el nombre de pila, que no se comparten y cómo darse de baja.
 9. Con Glob, en `sitio/` solo hay `.html`, `.css`, `.js` y `.webp`, y ningún video. Di cuántas imágenes hay. El peso lo mide quien abre el Pull Request.

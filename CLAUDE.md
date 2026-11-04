@@ -26,7 +26,7 @@ Nada de cifras de la cadena, ratings, resultados ni declaraciones inventadas.
 
   | Para | Función | Regresa |
   |---|---|---|
-  | La fecha | `datos_junta()` | `fecha` y `cierre_registro`. Muéstralas en español, con la zona de Nueva York. Si la base no responde, calcula tres días después de hoy, entre semana, a las 10:00 h de Nueva York |
+  | La fecha | `datos_junta()` | `fecha` y `cierre_registro`. Muéstralas en español, con la zona de Nueva York. Si la base no responde, calcula tres días después de hoy (el lunes, si caen en fin de semana), a las 10:00 h de Nueva York |
   | El contador | `contar_asistentes()` | un número |
   | Registrarse | `registrarse(p_nombre, p_correo, p_modalidad, p_llave)` | `{ok, nombre}` o `{ok: false, motivo}`: `ya` ("Ya estás registrado con ese correo") o `datos` |
   | Preguntar | `preguntar(p_llave, p_texto)` | `{ok, id}` o `motivo`: `registro` (pide registrarse primero), `texto` o `limite` (ya mandó tres) |
@@ -56,5 +56,6 @@ Nada de cifras de la cadena, ratings, resultados ni declaraciones inventadas.
 
 - Cada cambio va en una rama y se revisa en la vista previa del Pull Request. **Nunca** directo en `main`: cada publicación de `main` en Netlify gasta créditos.
 - Antes de abrir el Pull Request, pide al subagente `revisor-seguridad` que revise.
-- Si pruebas registrarte, preguntar o votar en la base, borra después lo que insertaste y regresa los votos como estaban: la persona cuenta con los siete de práctica y sus seis preguntas tal como vienen.
+- Prueba la página recargando después de registrarte: con el registro guardado en ese navegador, el muro, el contador y "El resumen de hoy" tienen que cargar igual. Declara todo antes de usarlo y arranca cada parte por separado, para que un error en una no detenga a las demás.
+- No dejes registros, preguntas ni votos de prueba en la base: la persona cuenta con los siete de práctica y sus seis preguntas tal como vienen. Si probaste, borra lo que insertaste y regresa los votos como estaban.
 - `respaldo/sitio/` es una página terminada y probada. **No** la copies ni la leas para construir, salvo que la persona lo pida ("usa el respaldo").
