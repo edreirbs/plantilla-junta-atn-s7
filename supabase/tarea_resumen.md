@@ -25,10 +25,10 @@ máximo 120 palabras: una línea por noticia y por
 qué le importa a una cadena de noticias. Con el
 conector de Supabase, en mi proyecto curso-claude,
 guárdalo con select public.guardar_resumen(texto,
-fuentes), con el texto entre $$ para que no fallen
-las comillas; fuentes es una lista JSON con el
-título y la liga de cada noticia. No cambies nada
-más.
+fuentes), con el texto y la lista de fuentes, cada
+uno entre $$, para que no fallen las comillas;
+fuentes es una lista JSON con el título y la liga
+de cada noticia. No cambies nada más.
 ```
 
 Para probarla sin esperar a mañana, en la página de la tarea da clic en **Ejecutar ahora**. En unos minutos, recarga tu página: aparece "El resumen de hoy".
